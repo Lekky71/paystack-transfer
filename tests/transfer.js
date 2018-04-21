@@ -9,7 +9,7 @@ describe('Paystack Transfer', function(){
 
     it("Should create a transfer recipient", function (done) {
         paystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})
-            .then((body) => {
+            .then(function (body) {
                 expect(body).to.have.property('data');
                 expect(body.data).to.have.property('type');
                 expect(body.data).to.have.property('name');
@@ -26,7 +26,7 @@ describe('Paystack Transfer', function(){
 
     it("It should return a list of all recipients", function (done) {
         paystackTransfer.listRecipients()
-            .then((body) => {
+            .then(function (body) {
                 expect(body).to.have.property('data');
                 expect(body).to.have.property('message');
                 expect(body).to.have.property('meta');
@@ -41,7 +41,7 @@ describe('Paystack Transfer', function(){
 
     it("Should initiate a transfer", function (done) {
         paystackTransfer.initiateSingle("balance", "Calm down", 200000, 'RCP_1t4o61bbb3sc6q2') //todo replace with gotten one
-            .then((body) => {
+            .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
                 done();
