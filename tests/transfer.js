@@ -18,7 +18,7 @@ describe('Paystack Transfer', function(){
                 expect(body.data).to.have.property('updatedAt');
                 done();
             })
-            .catch(error => {
+            .catch(function (error) {
                 return done(error);
             })
             .done();
@@ -33,7 +33,7 @@ describe('Paystack Transfer', function(){
                 expect(body).to.have.property('status');
                 done();
             })
-            .catch(error => {
+            .catch(function (error) {
                 return done(error);
             })
             .done();
@@ -46,7 +46,7 @@ describe('Paystack Transfer', function(){
                 expect(body).to.have.property('message');
                 done();
             })
-            .catch(error => {
+            .catch(function (error) {
                 return done(error);
             })
             .done();
