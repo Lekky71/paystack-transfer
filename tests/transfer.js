@@ -5,7 +5,7 @@ var allBanks = require('../resources/all-banks');
 console.log(key);
 
 
-describe('Paystack Transfer', () => {
+describe('Paystack Transfer', function(){
 
     it("Should create a transfer recipient", function (done) {
         paystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})

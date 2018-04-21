@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
   "homepage": "https://github.com/Lekky71/paystack-transfer",
   "keywords": [
     "payment",
