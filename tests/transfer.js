@@ -1,8 +1,8 @@
-let key = process.env.PAYSTACK_TEST_KEY;
-let paystackTransfer = require('../index')(key.toString());
-let mocha = require('mocha');
-let expect = require('chai').expect;
-let allBanks = require('../resources/all-banks');
+const key = process.env.PAYSTACK_TEST_KEY;
+const paystackTransfer = require('../index')(key.toString());
+const mocha = require('mocha');
+const expect = require('chai').expect;
+const allBanks = require('../resources/all-banks');
 console.log(key);
 
 
@@ -18,7 +18,6 @@ describe('Paystack Transfer', () => {
                 expect(body.data).to.have.property('description');
                 expect(body.data).to.have.property('createdAt');
                 expect(body.data).to.have.property('updatedAt');
-                console.log(body);
                 done();
             })
             .catch(error => {
@@ -47,7 +46,6 @@ describe('Paystack Transfer', () => {
         this.timeout(10000);
         paystackTransfer.initiateSingle("balance", "Calm down", 200000, 'RCP_1t4o61bbb3sc6q2') //todo replace with gotten one
             .then((body) => {
-                console.log(body);
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
                 done();
@@ -94,7 +92,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
@@ -117,7 +114,6 @@ describe('Paystack Transfer', () => {
         ]).then(function (body) {
             expect(body).to.have.property('status');
             expect(body).to.have.property('message');
-            console.log(body);
             done();
         })
             .catch(function (error) {
@@ -133,7 +129,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
@@ -148,7 +143,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
@@ -164,7 +158,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
@@ -179,7 +172,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
@@ -194,7 +186,6 @@ describe('Paystack Transfer', () => {
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
-                console.log(body);
                 done();
             })
             .catch(function (error) {
