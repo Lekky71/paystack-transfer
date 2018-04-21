@@ -13,6 +13,8 @@
     "paystack-transfer",
     "paystack library"
   ],
+  "bundleDependencies": false,
+  "deprecated": false,
   "author": {
     "name": "Fakorede Oluwaleke",
     "email": "hashilekky@gmail.com"
@@ -26,7 +28,7 @@
     "mocha": "^5.1.1"
   },
   "scripts": {
-    "test": "mocha ./test/*.js --reporter spec --timeout 10000"
+    "test": "mocha ./tests/*.js --reporter spec --timeout 10000"
   },
   "_requested": {
     "type": "tag",
