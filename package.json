@@ -1,13 +1,46 @@
 {
   "name": "paystack-transfer",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
+  "version": "0.1.0",
+
+  "license": "MIT",
+  "main": "index.js",
+  "homepage": "https://github.com/kehers/paystack",
+  "keywords": [
+    "payment",
+    "API",
+    "naira",
+    "paystack",
+    "transfer",
+    "paystack-transfer",
+    "paystack library"
+  ],
+  "author": {
+    "name": "Fakorede Oluwaleke",
+    "email": "hashilekky@gmail.com"
   },
   "dependencies": {
-    "debug": "~2.6.9",
-    "http-errors": "~1.6.2",
+    "promise": "^8.0.1",
     "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "paystack-transfer",
+    "name": "paystack-transfer",
+    "escapedName": "paystack-transfer",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lekky71/paystack-transfer.git"
   }
 }
