@@ -1,8 +1,8 @@
-const key = process.env.PAYSTACK_TEST_KEY;
-const paystackTransfer = require('../index')(key.toString());
-const mocha = require('mocha');
-const expect = require('chai').expect;
-const allBanks = require('../resources/all-banks');
+var key = process.env.PAYSTACK_TEST_KEY;
+var paystackTransfer = require('../index')(key.toString());
+var mocha = require('mocha');
+var expect = require('chai').expect;
+var allBanks = require('../resources/all-banks');
 console.log(key);
 
 

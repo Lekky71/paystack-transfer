@@ -1,10 +1,10 @@
-const path = require('path');
-const request = require('request');
-const allBanks = require('./resources/all-banks');
-const Promise = require('promise');
+var path = require('path');
+var request = require('request');
+var allBanks = require('./resources/all-banks');
+var Promise = require('promise');
 
 
-const root = 'https://api.paystack.co';
+var root = 'https://api.paystack.co';
 
 function PaystackTransfer(key) {
     if (!(this instanceof PaystackTransfer)) {
@@ -14,7 +14,7 @@ function PaystackTransfer(key) {
     this.key = key;
     //TRANSFER RECIPIENTS
     PaystackTransfer.prototype.createRecipient = function (name, description, account_number, bank, metadata, callback) {
-        const options = {
+        var options = {
             url: [root, "/transferrecipient"].join(''),
             json: true,
             method: 'POST',
@@ -37,7 +37,7 @@ function PaystackTransfer(key) {
 
 
     PaystackTransfer.prototype.listRecipients = function (callback) {
-        const options = {
+        var options = {
             url: [root, "/transferrecipient"].join(''),
             method: 'GET',
             json: true,
@@ -50,7 +50,7 @@ function PaystackTransfer(key) {
 
     //TRANSFERS
     PaystackTransfer.prototype.initiateSingle = function (source, reason, amount, recipient, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer"].join(''),
             json: true,
             method: 'POST',
@@ -68,7 +68,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.listTransfers = function (callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer"].join(''),
             method: 'GET',
             json: true,
@@ -80,7 +80,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.fetchTransfer = function (code, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer/", code.toString()].join(''),
             method: 'GET',
             json: true,
@@ -92,7 +92,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.finalize = function (transfer_code, otp, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer/finalize_transfer"].join(''),
             json: true,
             method: 'POST',
@@ -108,7 +108,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.initiateBulk = function (source, transfers, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer"].join(''),
             json: true,
             method: 'POST',
@@ -127,7 +127,7 @@ function PaystackTransfer(key) {
 
     //TRANSFER CONTROLS
     PaystackTransfer.prototype.checkBalance = function (callback) {
-        const options = {
+        var options = {
             url: [root, "/balance"].join(''),
             method: 'GET',
             json: true,
@@ -139,7 +139,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.resendOtp = function (transfer_code, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer/resend_otp"].join(''),
             json: true,
             method: 'POST',
@@ -154,7 +154,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.disableOtp = function (callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer/disable_otp"].join(''),
             json: true,
             method: 'POST',
@@ -166,7 +166,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.finalizeOtpDisable = function (otp, callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer/disable_otp_finalize"].join(''),
             json: true,
             method: 'POST',
@@ -181,7 +181,7 @@ function PaystackTransfer(key) {
     };
 
     PaystackTransfer.prototype.enableOtp = function (callback) {
-        const options = {
+        var options = {
             url: [root, "/transfer"].join(''),
             json: true,
             method: 'POST',
