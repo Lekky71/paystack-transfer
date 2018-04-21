@@ -4,7 +4,6 @@ var expect = require('chai').expect;
 var allBanks = require('../resources/all-banks');
 console.log(key);
 
-
 describe('Paystack Transfer', function(){
 
     it("Should create a transfer recipient", function (done) {
