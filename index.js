@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const request = require('request');
 const allBanks = require('./resources/all-banks');
