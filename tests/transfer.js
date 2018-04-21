@@ -9,7 +9,6 @@ console.log(key);
 describe('Paystack Transfer', () => {
 
     it("Should create a transfer recipient", function (done) {
-        this.timeout(10000);
         paystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})
             .then((body) => {
                 expect(body).to.have.property('data');
@@ -27,7 +26,6 @@ describe('Paystack Transfer', () => {
     });
 
     it("It should return a list of all recipients", function (done) {
-        this.timeout(10000);
         paystackTransfer.listRecipients()
             .then((body) => {
                 expect(body).to.have.property('data');
@@ -43,7 +41,6 @@ describe('Paystack Transfer', () => {
     });
 
     it("Should initiate a transfer", function (done) {
-        this.timeout(10000);
         paystackTransfer.initiateSingle("balance", "Calm down", 200000, 'RCP_1t4o61bbb3sc6q2') //todo replace with gotten one
             .then((body) => {
                 expect(body).to.have.property('status');
@@ -57,7 +54,6 @@ describe('Paystack Transfer', () => {
     });
 
     it("Should fetch a transfer by its code", function (done) {
-        this.timeout(10000);
         paystackTransfer.fetchTransfer('TRF_65jqzyoqclutyud')
             .then(function (body) {
                 expect(body).to.have.property('status');
@@ -71,7 +67,6 @@ describe('Paystack Transfer', () => {
     });
 
     it("Should list all my transfers", function (done) {
-        this.timeout(10000);
         paystackTransfer.listTransfers()
             .then(function (body) {
                 expect(body).to.have.property('status');
@@ -101,7 +96,6 @@ describe('Paystack Transfer', () => {
     });
 
     it("Should initiate bulk transfer", function (done) {
-        this.timeout(10000);
         paystackTransfer.initiateBulk("balance", [
             {
                 "amount": 50000,
