@@ -5,133 +5,145 @@ A NodeJs module for performing transfers from your Paystack account to Nigerian 
     npm install --save paystack-transfer
 
 # Usage
-    var paystackTransfer = require('paystack-transfer')(YOUR_SECRET_KEY)
-    All methods are promisified but you can also use callback(error, result) as the last argument(optional) in the method call
+    var PaystackTransfer = require('paystack-transfer')(YOUR_SECRET_KEY)
+    var allBanks = PaystackTransfer.all_banks;
+
+    All methods are promisified but you can also use callback(error, result)
+    as the last argument(optional) in the method call
+
+### Bank object
+    A bank object is for example is :
+
+    first_bank_of_nigeria: {
+        "name": "First Bank of Nigeria",
+        "slug": "first-bank-of-nigeria",
+        "code": "011",
+        "longcode": "011151003",
+        "gateway": "etz"
+    }
+
 
 ##### Create a transfer recipient
-    paystackTransfer.createRecipient(name, description, account_number, bank, metadata)
+    PaystackTransfer.createRecipient(name, description, account_number, bank, metadata)
                 .then(function(body){
                     ...
                 })
                 .catch(function(error){
-                    return done(error);
+                    console.log(error);
                 });
+    e.g : notice that you just supply the bank object from the allBanks array
+    PaystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})
+                .then(function (body) {
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
 
 
 ##### Return a list of all recipients
-    paystackTransfer.listRecipients()
+    PaystackTransfer.listRecipients()
                     .then(function(body){
                         ...
-                        done();
                     })
                     .catch(function(error){
-                        return done(error);
+                       console.log(error);
                     });
 
 
 ##### Initiate a transfer
-    paystackTransfer.initiateSingle(source, reason, amount, recipient)
+    PaystackTransfer.initiateSingle(source, reason, amount, recipient)
                     .then(function(body){
                         ...
-                        done();
                     })
                     .catch(function(error){
-                        return done(error);
+                        console.log(error);
                     });
 
 ##### Fetch a transfer by its code
-    paystackTransfer.fetchTransfer(code)
+    PaystackTransfer.fetchTransfer(code)
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 
 ##### List all your transfers
-    paystackTransfer.listTransfers()
+    PaystackTransfer.listTransfers()
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 ##### Finalize a transfer
-    paystackTransfer.finalize(transfer_code, otp)
+    PaystackTransfer.finalize(transfer_code, otp)
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 
 ##### Initiate bulk transfer
-    paystackTransfer.initiateBulk(source, transfers)
+    PaystackTransfer.initiateBulk(source, transfers)
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 ##### Check your Paystack account balance
-    paystackTransfer.checkBalance()
+    PaystackTransfer.checkBalance()
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 ##### Resend OTP for a particular transaction to phone number
-    paystackTransfer.resendOtp(transfer_code)
+    PaystackTransfer.resendOtp(transfer_code)
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 
 ##### Disable OTP for future transfers
-    paystackTransfer.disableOtp(otp)
+    PaystackTransfer.disableOtp(otp)
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 
 ##### Finalize disabling of OTP
-    paystackTransfer.finalizeOtpDisable()
+    PaystackTransfer.finalizeOtpDisable()
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 
 ##### Enable OTP
-    paystackTransfer.enableOtp()
+    PaystackTransfer.enableOtp()
                         .then(function(body){
                             ...
-                            done();
                         })
                         .catch(function(error){
-                            return done(error);
+                            console.log(error);
                         });
 
 # Test
