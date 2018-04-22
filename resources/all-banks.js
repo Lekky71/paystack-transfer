@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   access_bank: {
     "name": "Access Bank",

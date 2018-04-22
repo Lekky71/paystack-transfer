@@ -1,13 +1,13 @@
 var key = process.env.PAYSTACK_TEST_KEY;
-var paystackTransfer = require('../index')(key.toString());
+var PaystackTransfer = require('../index')(key.toString());
 var expect = require('chai').expect;
-var allBanks = require('../resources/all-banks');
+var allBanks = PaystackTransfer.all_banks;
 console.log(key);
 
 describe('Paystack Transfer', function(){
 
     it("Should create a transfer recipient", function (done) {
-        paystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})
+        PaystackTransfer.createRecipient("Oluwaleke", "Me", "0221859505", allBanks.guaranty_trust_bank, {})
             .then(function (body) {
                 expect(body).to.have.property('data');
                 expect(body.data).to.have.property('type');
@@ -24,7 +24,7 @@ describe('Paystack Transfer', function(){
     });
 
     it("It should return a list of all recipients", function (done) {
-        paystackTransfer.listRecipients()
+        PaystackTransfer.listRecipients()
             .then(function (body) {
                 expect(body).to.have.property('data');
                 expect(body).to.have.property('message');
@@ -39,7 +39,7 @@ describe('Paystack Transfer', function(){
     });
 
     it("Should initiate a transfer", function (done) {
-        paystackTransfer.initiateSingle("balance", "Calm down", 200000, 'RCP_1t4o61bbb3sc6q2') //todo replace with gotten one
+        PaystackTransfer.initiateSingle("balance", "Calm down", 200000, 'RCP_1t4o61bbb3sc6q2') //todo replace with gotten one
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -52,7 +52,7 @@ describe('Paystack Transfer', function(){
     });
 
     it("Should fetch a transfer by its code", function (done) {
-        paystackTransfer.fetchTransfer('TRF_65jqzyoqclutyud')
+        PaystackTransfer.fetchTransfer('TRF_65jqzyoqclutyud')
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -65,7 +65,7 @@ describe('Paystack Transfer', function(){
     });
 
     it("Should list all my transfers", function (done) {
-        paystackTransfer.listTransfers()
+        PaystackTransfer.listTransfers()
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -81,7 +81,7 @@ describe('Paystack Transfer', function(){
 
     it("Should finalize my transfer", function (done) {
 
-        paystackTransfer.finalize('TRF_65jqzyoqclutyud', '792537')
+        PaystackTransfer.finalize('TRF_65jqzyoqclutyud', '792537')
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -94,7 +94,7 @@ describe('Paystack Transfer', function(){
     });
 
     it("Should initiate bulk transfer", function (done) {
-        paystackTransfer.initiateBulk("balance", [
+        PaystackTransfer.initiateBulk("balance", [
             {
                 "amount": 50000,
                 "recipient": "RCP_1t4o61bbb3sc6q2"
@@ -117,7 +117,7 @@ describe('Paystack Transfer', function(){
 
     it("Should check my Paystack account balance", function (done) {
 
-        paystackTransfer.checkBalance()
+        PaystackTransfer.checkBalance()
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -131,7 +131,7 @@ describe('Paystack Transfer', function(){
 
     it("Should resend OTP for a particular transaction to phone number", function (done) {
 
-        paystackTransfer.resendOtp('TRF_65jqzyoqclutyud')
+        PaystackTransfer.resendOtp('TRF_65jqzyoqclutyud')
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -146,7 +146,7 @@ describe('Paystack Transfer', function(){
 
     it("Should disable OTP for future transfers", function (done) {
 
-        paystackTransfer.disableOtp()
+        PaystackTransfer.disableOtp()
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -160,7 +160,7 @@ describe('Paystack Transfer', function(){
 
     it("Should finalize disabling of OTP", function (done) {
 
-        paystackTransfer.finalizeOtpDisable('777605')
+        PaystackTransfer.finalizeOtpDisable('777605')
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');
@@ -174,7 +174,7 @@ describe('Paystack Transfer', function(){
 
     it("Should enable OTP", function (done) {
 
-        paystackTransfer.enableOtp()
+        PaystackTransfer.enableOtp()
             .then(function (body) {
                 expect(body).to.have.property('status');
                 expect(body).to.have.property('message');

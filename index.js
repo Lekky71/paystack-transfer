@@ -13,6 +13,8 @@ function PaystackTransfer(key) {
 
     this.key = key;
     //TRANSFER RECIPIENTS
+    PaystackTransfer.prototype.all_banks = allBanks;
+
     PaystackTransfer.prototype.createRecipient = function (name, description, account_number, bank, metadata, callback) {
         var options = {
             url: [root, "/transferrecipient"].join(''),
